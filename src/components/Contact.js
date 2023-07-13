@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 class Contact extends Component {
-  onShowClick(){
-    console.log('Nazih Wassup')
+  state = {}
+  onShowClick = e => {
+    console.log(e.target)
   }
   
   render() {
-    
     const {name, email, phone} = this.props.contact
 
     return (
