@@ -7,12 +7,10 @@ const App = () => {
 
   return (
     <div className="App">
-    <Header branding='Contact Manager App' />
+      <Header branding='Contact Manager App' />
     <div className='container'>
-    <Contacts />
-    
+      <Contacts />
     </div>  
-     
     </div>
   );
 }
