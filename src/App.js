@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
-import Contacts from './components/Contacts';
-import Header from './components/Header';
+import Contacts from './components/contact/Contacts';
+import Header from './components/layout/Header'
 import { Provider } from './context';
 
 const App = () => {
