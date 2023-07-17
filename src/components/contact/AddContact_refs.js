@@ -1,21 +1,33 @@
 import React, { Component } from 'react'
 
 class AddContact extends Component {
-     state = {
-        name: '',
-        email: '',
-        phone: ''
-    };
-    onSubmit = (e) => {
-        e.preventDefault();
-        console.log(this.state)
+    constructor(props){
+        super(props)
+
+        this.nameInput = React.createRef()
+        this.emailInput = React.createRef()
+        this.phoneInput = React.createRef()
     }
 
-    onChange = (e) => this.setState({[e.target.name]: e.target.value})
+    onSubmit = (e) => {
+        e.preventDefault();
+        const contact = {
+            name: this.nameInput.current.value,
+            email: this.emailInput.current.value,
+            phone: this.phoneInput.current.value
+        }
+        console.log(contact)
+    }
+
+    static defaultProps = {
+        name: 'Idris Bima',
+        email: 'idrisbima@yahoo.com',
+        phone: '0902 340 800 9393'
+    }
 
   render() {
 
-    const {name, email, phone} = this.state
+    const {name, email, phone} = this.props
     return (
       <div className='card mb-3'>
         <div className='card-header'>Add Contacts</div>
@@ -26,10 +38,10 @@ class AddContact extends Component {
               <input 
               type='text' 
               name='name'
-              value={name}
+              defaultValue={name}
               className='form-control form-control-lg'
               placeholder='Enter your name...' 
-              onChange={this.onChange}
+              ref={this.nameInput}
               />
             </div>
             <div className='form-group'>
@@ -37,10 +49,10 @@ class AddContact extends Component {
               <input 
               type='email' 
               name='email'
-              value={email}
+              defaultValue={email}
               className='form-control form-control-lg'
               placeholder='Enter your email...' 
-              onChange={this.onChange}
+              ref={this.emailInput}
               />
             </div>
             <div className='form-group'>
@@ -48,10 +60,10 @@ class AddContact extends Component {
               <input 
               type='text' 
               name='phone'
-              value={phone}
+              defaultValue={phone}
               className='form-control form-control-lg'
               placeholder='Enter your phone number...'
-              onChange={this.onChange} 
+              ref={this.phoneInput}
               />
             </div>
             <input
