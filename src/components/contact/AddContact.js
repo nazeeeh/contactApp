@@ -1,26 +1,51 @@
 import React, { Component } from 'react'
+import { Consumer } from '../../context'
+import {v4 as uuidv4} from 'uuid';
 
 class AddContact extends Component {
+  //Contact state 
      state = {
         name: '',
         email: '',
         phone: ''
     };
-    onSubmit = (e) => {
+    // On submit function expression
+    onSubmit = (dispatch, e) => {
         e.preventDefault();
-        console.log(this.state)
-    }
+        //Destructure
+        const {name, email, phone} = this.state
+        //Create a contact
+        const newContact = {
+          id: uuidv4(),
+          name,
+          email,
+          phone
+        }
+        //add a new contact
+        dispatch({type: 'ADD_CONTACT' , payload: newContact})
 
+        //Clear input fields-state
+        this.setState({
+          name: '',
+          email: '',
+          phone: ''
+        })
+    }
+    //Input change
     onChange = (e) => this.setState({[e.target.name]: e.target.value})
 
   render() {
 
     const {name, email, phone} = this.state
     return (
-      <div className='card mb-3'>
+      <Consumer>
+        {value => {
+          const {dispatch} = value;
+          return (
+            <div className='card mb-3'>
         <div className='card-header'>Add Contacts</div>
         <div className='card-body'>
-          <form onSubmit={this.onSubmit}>
+          <form onSubmit={this.onSubmit.bind(this, dispatch)}>
             <div className='form-group'>
               <label htmlFor='name'>Name</label>
               <input 
@@ -62,6 +87,9 @@ class AddContact extends Component {
           </form>
         </div>
       </div>
+          )
+        }}
+      </Consumer>
     )
   }
 }
