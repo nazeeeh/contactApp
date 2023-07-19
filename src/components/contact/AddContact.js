@@ -79,7 +79,7 @@ class AddContact extends Component {
               label ='Email'
               name = 'email'
               type = 'email'
-              placeholder = 'Enter Your Email Address' 
+              placeholder = 'Enter your email address' 
               value = {email}
               onChange = {this.onChange}
               error = {errors.email}
@@ -87,7 +87,7 @@ class AddContact extends Component {
             <TextInputGroup 
               label = 'Phone Number'
               name = 'phone'
-              placeholder = 'Enter Your Phone Number' 
+              placeholder = 'Enter your phone number' 
               value = {phone}
               onChange = {this.onChange}
               error = {errors.phone}
