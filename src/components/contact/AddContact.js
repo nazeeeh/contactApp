@@ -2,8 +2,10 @@ import React, { Component } from 'react'
 import { Consumer } from '../../context'
 import TextInputGroup from '../layout/TextInputGroup';
 import {v4 as uuidv4} from 'uuid';
+// import { useNavigate } from 'react-router-dom';
 
 class AddContact extends Component {
+  
   //Contact state 
      state = {
         name: '',
@@ -51,6 +53,8 @@ class AddContact extends Component {
           phone: '',
           errors: {}
         })
+
+        
     }
     //Input change
     onChange = (e) => this.setState({[e.target.name]: e.target.value})

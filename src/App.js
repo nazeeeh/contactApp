@@ -6,6 +6,7 @@ import AddContact from './components/contact/AddContact'
 import Header from './components/layout/Header'
 import About from './components/pages/About'
 import { Provider } from './context';
+import NotFound from './components/pages/NotFound';
 
 const App = () => {
 
@@ -19,6 +20,7 @@ const App = () => {
           <Route exact path='/' element= {<Contacts/>} />
           <Route exact path='/contact/add' element={<AddContact />} />
           <Route exact path='/about' element={<About />} />
+          <Route element={<NotFound />} />
         </Routes>
         </div>  
         </div>
