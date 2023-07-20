@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route} from 'react-router-dom';
+import {Routes, Route} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
 import Contacts from './components/contact/Contacts';
@@ -12,19 +12,17 @@ const App = () => {
 
   return (
     <Provider>
-      <BrowserRouter>
         <div className="App">
         <Header branding='Contact Manager App' />
         <div className='container'>
         <Routes>
           <Route exact path='/' element= {<Contacts/>} />
-          <Route exact path='/contact/add' element={<AddContact />} />
-          <Route exact path='/about' element={<About />} />
-          <Route element={<NotFound />} />
+          <Route path='/contact/add' element={<AddContact />} />
+          <Route path='/about' element={<About />} />
+          <Route path='*' element={<NotFound />} />
         </Routes>
         </div>  
         </div>
-      </BrowserRouter>
     </Provider>
   );
 }
