@@ -16,7 +16,7 @@ const App = () => {
         <Header branding='Contact Manager App' />
         <div className='container'>
         <Routes>
-          <Route exact path='/' element= {<Contacts/>} />
+          <Route path='/' element= {<Contacts/>} exact/>
           <Route path='/contact/add' element={<AddContact />} />
           <Route path='/about' element={<About />} />
           <Route path='*' element={<NotFound />} />
