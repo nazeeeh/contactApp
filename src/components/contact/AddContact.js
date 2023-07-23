@@ -15,7 +15,7 @@ class AddContact extends Component {
         errors: {}
     };
     // On submit function expression
-    onSubmit = (dispatch, e) => {
+    onSubmit = async (dispatch, e) => {
         e.preventDefault();
 
         //Destructure
@@ -46,9 +46,9 @@ class AddContact extends Component {
         }
 
         //add a new contact
-        axios.post('https://jsonplaceholder.typicode.com/users', newContact)
-        .then(res => dispatch({type: 'ADD_CONTACT', payload: res.data}))
-        
+        const res = await axios.post('https://jsonplaceholder.typicode.com/users', newContact)
+        dispatch({type: 'ADD_CONTACT', payload: res.data})
+  
         //Clear input fields-state
         this.setState({
           name: '',
