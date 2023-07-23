@@ -7,6 +7,7 @@ import Header from './components/layout/Header'
 import About from './components/pages/About'
 import { Provider } from './context';
 import NotFound from './components/pages/NotFound';
+import Test from './components/test/Test';
 
 const App = () => {
 
@@ -20,6 +21,7 @@ const App = () => {
           <Route path='/contact/add' element={<AddContact />} />
           <Route path='/about' element={<About />} />
           <Route path='*' element={<NotFound />} />
+          <Route path='/test' element={<Test />} />
         </Routes>
         </div>  
         </div>
